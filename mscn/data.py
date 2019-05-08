@@ -13,7 +13,7 @@ def load_data(file_name, num_materialized_samples):
     label = []
 
     # Load queries
-    with open(file_name + ".csv", 'rU') as f:
+    with open("/content/learnedcardinalities/" +f ile_name + ".csv", 'rU') as f:
         data_raw = list(list(rec) for rec in csv.reader(f, delimiter='#'))
         for row in data_raw:
             tables.append(row[0].split(','))
