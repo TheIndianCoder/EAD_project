@@ -74,7 +74,7 @@ def load_and_encode_train_data(num_queries, num_materialized_samples):
     join2vec, idx2join = get_set_encoding(join_set)
 
     # Get min and max values for each column
-    with open(file_name_column_min_max_vals, 'rU') as f:
+    with open("/content/learnedcardinalities/"+ file_name_column_min_max_vals, 'rU') as f:
         data_raw = list(list(rec) for rec in csv.reader(f, delimiter=','))
         column_min_max_vals = {}
         for i, row in enumerate(data_raw):
