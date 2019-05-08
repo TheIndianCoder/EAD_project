@@ -13,7 +13,7 @@ def load_data(file_name, num_materialized_samples):
     label = []
 
     # Load queries
-    with open("/content/learnedcardinalities/" +f ile_name + ".csv", 'rU') as f:
+    with open("/content/learnedcardinalities/" + file_name + ".csv", 'rU') as f:
         data_raw = list(list(rec) for rec in csv.reader(f, delimiter='#'))
         for row in data_raw:
             tables.append(row[0].split(','))
@@ -27,7 +27,7 @@ def load_data(file_name, num_materialized_samples):
 
     # Load bitmaps
     num_bytes_per_bitmap = int((num_materialized_samples + 7) >> 3)
-    with open(file_name + ".bitmaps", 'rb') as f:
+    with open("/content/learnedcardinalities/" + file_name + ".bitmaps", 'rb') as f:
         for i in range(len(tables)):
             four_bytes = f.read(4)
             if not four_bytes:
