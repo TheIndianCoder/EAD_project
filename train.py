@@ -118,7 +118,7 @@ def train_and_predict(workload_name, num_queries, num_epochs, batch_size, hid_un
             optimizer.step()
 
         print("Epoch {}, loss: {}".format(epoch, loss_total / len(train_data_loader)))
-
+    torch.save(model, 'model_savefile.pth')
     # Get final training and validation set predictions
     preds_train, t_total = predict(model, train_data_loader, cuda)
     print("Prediction time per training sample: {}".format(t_total / len(labels_train) * 1000))
